@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/skills")
 public class SkillRestController {
+    @Autowired
     private SkillService skillService;
 
     @Autowired

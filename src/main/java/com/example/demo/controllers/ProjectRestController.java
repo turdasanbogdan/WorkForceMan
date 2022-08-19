@@ -14,6 +14,7 @@ import java.util.List;
 @RequestMapping("/projects")
 public class ProjectRestController {
 
+    @Autowired
     private ProjectService projectService;
 
     @Autowired

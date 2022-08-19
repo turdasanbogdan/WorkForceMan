@@ -3,9 +3,11 @@ package com.example.demo.services;
 import com.example.demo.entities.User;
 import com.example.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -21,7 +23,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findByUserName(String username) {
-        return usersRepo.findByUserName(username);
+    public User findByUsername(String username) {
+        return usersRepo.findByUsername(username);
     }
 }

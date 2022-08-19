@@ -14,6 +14,7 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserRestController {
 
+    @Autowired
     private UserService userService;
 
     @Autowired
@@ -38,8 +39,8 @@ public class UserRestController {
     }
 
     @GetMapping("/username/{username}")
-    public User findByUserName(@PathVariable String username){
-        User user = userService.findByUserName(username);
+    public User findByUsername(@PathVariable String username){
+        User user = userService.findByUsername(username);
 
         if(user == null){
             throw new RuntimeException("User not found" + username);
