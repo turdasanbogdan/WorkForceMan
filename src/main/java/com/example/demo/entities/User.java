@@ -30,6 +30,9 @@ public class User {
     @Column
     private String status;
 
+    public User() {
+    }
+
     public User(String username, String first_name, String last_name, String role, String password, String status) {
         this.username = username;
         this.first_name = first_name;
@@ -79,4 +82,11 @@ public class User {
 
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }
