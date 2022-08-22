@@ -19,6 +19,9 @@ public class Skill {
     @Column
     private int rating;
 
+    public Skill() {
+    }
+
     public Skill(String name, String category, int rating){
         this.name = name;
         this.category = category;
