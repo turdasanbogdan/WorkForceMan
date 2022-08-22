@@ -9,4 +9,10 @@ public interface SkillRepository extends JpaRepository<Skill, Integer> {
     List<Skill> findAll();
     Skill findById(int id);
     Skill findByName(String name);
+
+    Skill save(Skill skill);
+
+    void delete(Skill skill);
+
+    void deleteById(int id);
 }

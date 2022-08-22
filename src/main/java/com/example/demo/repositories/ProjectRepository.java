@@ -9,4 +9,11 @@ public interface ProjectRepository extends JpaRepository<Project, Integer> {
     List<Project> findAll();
     Project findById(int id);
     Project findByName(String name);
+
+    Project save(Project project);
+
+    void delete(Project project);
+
+    void deleteById(int id);
+
 }
