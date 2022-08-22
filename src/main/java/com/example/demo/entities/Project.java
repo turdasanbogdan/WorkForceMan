@@ -16,6 +16,9 @@ public class Project {
     @Column
     String category;
 
+    public Project() {
+    }
+
     public Project(String name, String category){
         this.name = name;
         this.category = category;
