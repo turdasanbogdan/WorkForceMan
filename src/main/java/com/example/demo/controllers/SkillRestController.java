@@ -3,10 +3,7 @@ package com.example.demo.controllers;
 import com.example.demo.entities.Skill;
 import com.example.demo.services.SkillService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -46,6 +43,19 @@ public class SkillRestController {
         }
 
         return skill;
+    }
+
+    @PostMapping("/")
+    Skill createSkill(@RequestBody Skill skill){return skillService.createSkill(skill);}
+
+    @PutMapping("/{id}")
+    Skill updateSkill(@PathVariable int id, @RequestBody Skill skill){
+        return skillService.updateSkill(id, skill);
+    }
+
+    @DeleteMapping("/{id}")
+    void deleteSkill(@PathVariable int id){
+        skillService.deleteSkillById(id);
     }
 
 }

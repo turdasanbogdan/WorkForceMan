@@ -26,4 +26,25 @@ public class ProjectServiceImpl  implements ProjectService{
     public Project findByName(String name) {
         return projectRepo.findByName(name);
     }
+
+    @Override
+    public Project createProject(Project project) {
+        return projectRepo.save(project);
+    }
+
+    @Override
+    public Project updateProject(int id, Project project) {
+        Project projectToUpdate = projectRepo.findById(id);
+        projectToUpdate.setName(project.getName());
+        projectToUpdate.setCategory(project.getCategory());
+
+        return projectRepo.save(projectToUpdate);
+    }
+
+    @Override
+    public void deleteProjectById(int id) {
+        projectRepo.deleteById(id);
+    }
+
+
 }

@@ -10,4 +10,10 @@ public interface ProjectService {
     Project findById(int id);
     Project findByName(String name);
 
+    Project createProject(Project project);
+
+    Project updateProject(int id, Project project);
+
+    void deleteProjectById(int id);
+
 }

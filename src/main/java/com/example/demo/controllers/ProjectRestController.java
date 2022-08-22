@@ -3,10 +3,7 @@ package com.example.demo.controllers;
 import com.example.demo.entities.Project;
 import com.example.demo.services.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -49,4 +46,20 @@ public class ProjectRestController {
 
         return project;
     }
+
+    @PostMapping("/")
+    Project createProject(@RequestBody Project project){
+        return projectService.createProject(project);
+    }
+
+    @PutMapping("/{id}")
+    Project updateProject(@PathVariable int id,@RequestBody Project project){
+        return projectService.updateProject(id, project);
+    }
+
+    @DeleteMapping("/{id}")
+    void deleteProject(@PathVariable int id){
+        projectService.deleteProjectById(id);
+    }
+
 }

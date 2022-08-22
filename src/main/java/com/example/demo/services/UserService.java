@@ -9,4 +9,10 @@ public interface UserService {
     List<User> findAll();
     User findById(int id);
     User findByUsername(String username);
+
+    User createUser(User user);
+
+    User updateUser(int id, User user);
+
+    void deleteUserById(int id);
 }
