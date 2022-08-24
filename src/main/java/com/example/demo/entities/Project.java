@@ -1,10 +1,14 @@
 package com.example.demo.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "projects")
-public class Project {
+public class Project implements Serializable {
 
     @Id
     @GeneratedValue()
@@ -43,4 +47,5 @@ public class Project {
     public void setCategory(String category) {
         this.category = category;
     }
+
 }

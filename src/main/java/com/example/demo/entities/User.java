@@ -1,12 +1,15 @@
 package com.example.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue()
@@ -89,4 +92,5 @@ public class User {
     public void setUsername(String username) {
         this.username = username;
     }
+
 }
