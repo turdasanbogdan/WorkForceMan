@@ -3,6 +3,7 @@ package com.example.demo.services;
 import com.example.demo.entities.Project;
 import com.example.demo.entities.User;
 import com.example.demo.repositories.ProjectRepository;
+import com.example.demo.repositories.ProjectSpecifications;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +28,16 @@ public class ProjectServiceImpl  implements ProjectService{
     @Override
     public Project findByName(String name) {
         return projectRepo.findByName(name);
+    }
+
+    @Override
+    public List<Project> getProjectsByName(String name) {
+        return projectRepo.findAll(ProjectSpecifications.getProjectsByName(name));
+    }
+
+    @Override
+    public List<Project> getProjectsByCategory(String category) {
+        return projectRepo.findAll(ProjectSpecifications.getProjectsByCategory(category));
     }
 
     @Override

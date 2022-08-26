@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequestMapping("/projects")
@@ -75,6 +74,16 @@ public class ProjectRestController {
     List<User> getAllUsers(@PathVariable int id){
         List<User> users = projectUsersService.findAll().stream().filter(pu -> pu.getProject_id() == id).map(pu -> userService.findById(pu.getUser_id())).toList();
         return users;
+    }
+
+    @GetMapping("{name}")
+    List<Project> getProjectsByName(@PathVariable String name){
+        return projectService.getProjectsByName(name);
+    }
+
+    @GetMapping("{category}")
+    List<Project> getProjectsByCategory(@PathVariable String category){
+        return projectService.getProjectsByCategory(category);
     }
 
 

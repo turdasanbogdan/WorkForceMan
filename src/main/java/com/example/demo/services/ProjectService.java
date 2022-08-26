@@ -12,6 +12,9 @@ public interface ProjectService {
     Project findById(int id);
     Project findByName(String name);
 
+    List<Project> getProjectsByName(String name);
+
+    List<Project> getProjectsByCategory(String category);
     Project createProject(Project project);
 
     Project updateProject(int id, Project project);

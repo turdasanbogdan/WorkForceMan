@@ -13,5 +13,11 @@ public interface SkillService {
 
     Skill updateSkill(int id, Skill project);
 
+    List<Skill> getSkillsByName(String name);
+
+    List<Skill> getSkillsByCategory(String category);
+
+    List<Skill> getSkillsByRating(int rating);
+
     void deleteSkillById(int id);
 }

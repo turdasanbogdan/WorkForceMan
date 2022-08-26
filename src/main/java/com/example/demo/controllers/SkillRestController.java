@@ -34,17 +34,31 @@ public class SkillRestController {
         return skill;
     }
 
-    @GetMapping("/username/{username}")
-    public Skill findByName(@PathVariable String name){
-        Skill skill  = skillService.findByName(name);
+//    @GetMapping("/username/{username}")
+//    public Skill findByName(@PathVariable String name){
+//        Skill skill  = skillService.findByName(name);
+//
+//        if(skill == null){
+//            throw new RuntimeException("User not found" + name);
+//        }
+//
+//        return skill;
+//    }
 
-        if(skill == null){
-            throw new RuntimeException("User not found" + name);
-        }
-
-        return skill;
+    @GetMapping("/{name}")
+    public List<Skill> getSkillsByName(@PathVariable String name){
+        return skillService.getSkillsByName(name);
     }
 
+//    @GetMapping("/{category}")
+//    public List<Skill> getSkillsByCategory(@PathVariable String category){
+//        return skillService.getSkillsByCategory(category);
+//    }
+//
+//    @GetMapping("/{name}")
+//    public List<Skill> getSkillsByRating(@PathVariable int rating){
+//        return skillService.getSkillsByRating(rating);
+//    }
     @PostMapping("/")
     Skill createSkill(@RequestBody Skill skill){return skillService.createSkill(skill);}
 

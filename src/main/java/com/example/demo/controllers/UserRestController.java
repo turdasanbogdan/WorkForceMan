@@ -1,17 +1,14 @@
 package com.example.demo.controllers;
 
 import com.example.demo.entities.*;
-import com.example.demo.services.ProjectService;
 import com.example.demo.services.SkillService;
 import com.example.demo.services.UserService;
 import com.example.demo.services.UserSkillsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
@@ -61,11 +58,36 @@ public class UserRestController {
         return user;
     }
 
+    @GetMapping("{username}")
+    public List<User> getUsersByUsername(@PathVariable String username){
+        return userService.getUsersByUsername(username);
+    }
+
+    @GetMapping("{first_name}")
+    public List<User> getUsersByFirstname(@PathVariable String first_name){
+        return userService.getUsersByFirstname(first_name);
+    }
+
+    @GetMapping("{last_name}")
+    public List<User> getUsersByLastname(@PathVariable String last_name){
+        return userService.getUsersByLastname(last_name);
+    }
+
+    @GetMapping("{role}")
+    public List<User> getUsersByRole(@PathVariable String role){
+        return userService.getUsersByRole(role);
+    }
+
     @GetMapping("/skills/{id}")
     List<Skill> getAllSkills(@PathVariable int id){
         List<Skill> skills = userSkillsService.findAll().stream().filter(us -> us.getUser_id() == id).map(us -> skillService.findById(us.getSkill_id())).toList();
         return skills;
     }
+
+//    @GetMapping("/skills/{username}/{skill_name}")
+//    List<User> getAllSkillsByName(@PathVariable String username, @PathVariable String skill_name){
+//
+//    }
 
     @PostMapping("/")
     public User createUser(@RequestBody @Valid User user){
